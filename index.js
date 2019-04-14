@@ -17,6 +17,7 @@ var dataMain = [];
 
 app.get("/", (req, res) => {
   console.log("app is running");
+  res.render("index");
 });
 
 app.post("/bildirim", function(req, res) {
