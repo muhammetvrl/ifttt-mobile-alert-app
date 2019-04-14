@@ -3,6 +3,9 @@ var app = express();
 const axios = require("axios");
 const db = require("./helper/db_connect")();
 const JSON = require('circular-json');
+var cors = require('cors');
+app.use(cors())
+app.options('*', cors())
 
 var alertFoto = require("./db/fotoAlert");
 var deviceAlert = require("./db/deviceAlert");
