@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 module.exports = () => {
   const mongoose = require('mongoose');
-  mongoose.connect('mongodb://root:abc123@ds139956.mlab.com:39956/heroku_qfw3zdb3', { useNewUrlParser: true });
+  mongoose.connect('mongodb://root:abc123@ds139896.mlab.com:39896/heroku_t5v8jh36', { useNewUrlParser: true });
   mongoose.connection.on('open', () => {
      console.log('MongoDB: Connected');
   });
