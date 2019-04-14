@@ -16,7 +16,7 @@ app.set("view engine", "ejs");
 var dataMain = [];
 
 app.get("/", (req, res) => {
-  res.write("<h1>Alert App</h1>")
+  console.log("app is running");
 });
 
 app.post("/bildirim", function(req, res) {
