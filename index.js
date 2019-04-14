@@ -113,6 +113,10 @@ app.get("/calls", function(req, res) {
  });
 });
 
+app.post("/test", function(req, res) {
+  console.log("tested");
+});
+
 app.listen(process.env.PORT || 4000, () => {
   console.log("Server running on port 4000");
 });
