@@ -49,7 +49,15 @@ app.get("/bildirim", function(req, res) {
    console.log(err);
  });
 });
-
+app.delete('/bildirim/:id', function (req, res) {
+  const promise = deviceAlert.findByIdAndDelete(req.params.id);
+  promise.then((bildirim) => {
+    if (!bildirim) next({ message: "Bildirim Bulunamadı", code: 404 });
+    res.json(bildirim);
+  }).catch((err) => {
+    res.json(err);
+  })
+})
 app.post("/battery", function(req, res) {
   let newbatteryAlert = new batteryAlert({
     powerSource: req.body.powerSource,
@@ -72,6 +80,15 @@ app.get("/battery", function(req, res) {
    console.log(err);
  });
 });
+app.delete('/battery/:id', function (req, res) {
+  const promise = batteryAlert.findByIdAndDelete(req.params.id);
+  promise.then((battery) => {
+    if (!battery) next({ message: "Bildirim Bulunamadı", code: 404 });
+    res.json(battery);
+  }).catch((err) => {
+    res.json(err);
+  })
+})
 
 app.post("/photos", function(req, res) {
   let newalertFoto = new alertFoto({
@@ -95,6 +112,15 @@ app.get("/photos", function (req, res) {
     console.log(err);
   });
 });
+app.delete('/photos/:id', function (req, res) {
+  const promise = alertFoto.findByIdAndDelete(req.params.id);
+  promise.then((foto) => {
+    if (!foto) next({ message: "Bildirim Bulunamadı", code: 404 });
+    res.json(foto);
+  }).catch((err) => {
+    res.json(err);
+  })
+})
 
 app.post("/calls", function(req, res) {
   let newcallAlert = new callAlert({
@@ -119,7 +145,15 @@ app.get("/calls", function(req, res) {
    console.log(err);
  });
 });
-
+app.delete('/calls/:id', function (req, res) {
+  const promise = callAlert.findByIdAndDelete(req.params.id);
+  promise.then((call) => {
+    if (!call) next({ message: "Bildirim Bulunamadı", code: 404 });
+    res.json(call);
+  }).catch((err) => {
+    res.json(err);
+  })
+})
 app.post("/test", function(req, res) {
   console.log("tested");
 });
